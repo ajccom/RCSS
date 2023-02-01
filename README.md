@@ -148,6 +148,24 @@ RCSS 在运行时支持动态创建样式以达到减少样式编写并实时渲
 
 对于性能有利的地方是，样式文件体积可以减少；不利的地方则是运行时多了监听 DOM 变化执行动态样式处理的逻辑造成的性能消耗。
 
+这里附一个自测用函数
+```
+function test () {
+  let x = 1;
+  function trave(dom) {
+    dom.classList.add('mt' + x)
+    x++
+    if (dom.children) {
+      Array.from(dom.children).forEach(dom => {
+        trave(dom)
+      })
+    }
+  }
+  root = document.body
+  trave(root)
+}
+```
+
 ### 规则集覆盖的局限性
 
 RCSS 并没有完全取代传统 CSS 编写方式的能力，动态创建规则集是基于 class name 的命名规范需要符合 RCSS 的预设前缀基础上。

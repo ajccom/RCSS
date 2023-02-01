@@ -30,7 +30,15 @@ RCSS 的名称，意为`反应式 CSS`，R 是 Reactive 的简写。这个名称
 
 ## 如何使用 
 
-商家端（coco_tob_cms）已经集成了 RCSS 能力。在编写代码过程中，在 HTML 标签中书写 RCSS 预设的 class name 前缀加具体值就会产生效果。如下示例，
+首先引入并初始化 rcss
+
+```javascript
+import rcss from 'rcss'
+
+rcss.init()
+```
+
+在编写代码过程中，在 HTML 标签中书写 RCSS 预设的 class name 前缀加具体值就会产生效果。如下示例，
 
 ```html
 <!-- 开发时用户编写的 class 名称 mb15 和 pb18 -->
